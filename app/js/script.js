@@ -11,6 +11,26 @@ const companyInput = document.querySelector('#company');
 const regionInput = document.querySelector('#region');
 const userInput = document.querySelector('#user');
 
+function setError(input, message) {
+    input.style.border = '2px solid red';
+    label.textContent = message;
+    label.style.color = 'red';
+    input.parentNode.appendChild(label);
+}
+
+
+function isEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+
+}
+
+
+function isPhoneNumber(phoneNumber) {
+    const pattern = /^(\+?7|8)\d{10}$/;
+    return pattern.test(phoneNumber);
+}
+
 
 document.getElementById('manbtn').addEventListener('click', function () {
     document.querySelector('.form-mn').style.display = 'grid';
@@ -92,22 +112,3 @@ document.getElementById('mn').addEventListener('click', function(event) {
 })
 
 
-function setError(input, message) {
-    input.style.border = '2px solid red';
-    label.textContent = message;
-    label.style.color = 'red';
-    input.parentNode.appendChild(label);
-}
-
-
-function isEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-
-}
-
-
-function isPhoneNumber(phoneNumber) {
-    const pattern = /^(\+?7|8)\d{10}$/;
-    return pattern.test(phoneNumber);
-}
