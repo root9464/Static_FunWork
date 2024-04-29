@@ -50,7 +50,7 @@ document.getElementById('wm').addEventListener('click', function(event) {
   if ((name!== '' && city!== '') && (isPhoneNumber(name) || isEmail(name))) {
     nameInput.style.border = '';
     cityInput.style.border = '';
-    label.textContent = ''; // clear the label's text content
+    label.textContent = ''; 
     console.log('Форма успешно валидирована');
   }
 });
@@ -86,7 +86,7 @@ document.getElementById('mn').addEventListener('click', function(event) {
     companyInput.style.border = '';
     regionInput.style.border = '';
 
-    label.textContent = ''; // clear the label's text content
+    label.textContent = '';
     console.log('Форма успешно валидирована');
   }
 })
