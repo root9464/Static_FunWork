@@ -13,17 +13,86 @@
             <div class="form-woomen">
                 <div class="form-content">
                     <img src="../../img/woomen.svg" alt="woomen">
-                    <a class="btn" href="reg-wm.html">next</a>
+                    <button class="btn" id="wombtn">мужик</button>
                 </div>
             </div>
 
             <div class="form-woomen">
                 <div class="form-content">
                     <img src="../../img/man.svg" alt="woomen">
-                    <a class="btn" href="reg-man.html">next</a>
+                    <button class="btn" id="manbtn">баба</button>
                 </div>
             </div>
+
+            <div class="form-wm"  style="display: none;">
+
+                <div class="content">
+                    <form action="submit" class="form">
+                        <input type="text" name="name" id="name" placeholder="Номер или email">
+                        <input type="text" name="city" id="city" placeholder="Город">
+                    </form>
+                    <img src="../../img/woomen.svg" alt="man">
+                </div>
+
+                <div class="bottom-content">
+                    <div class="checkbox">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <p>Я хочу получить рассылку после мероприятия</p>
+                    </div>
+                    <div class="submiting">
+                        <button class="btn" type="submit" id="wm">next</button>
+                        <h4>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                            laboris nisi ut aliquip ex ea commodo.
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-mn" style="display: none;"> 
+                <div class="content">
+                    <form action="submit" class="form">
+                        <input type="text" name="name" id="name" placeholder="Имя">
+
+                        <input type="text" name="surname" id="surname" placeholder="Фамилия">
+
+                        <input type="text" name="phone" id="phone" placeholder="Телефон">
+
+                        <input type="email" name="email" id="email" placeholder="Email">
+
+                        <input type="text" name="company" id="company" placeholder="Компания">
+
+                        <input type="text" name="region" id="region" placeholder="Регион">
+                    </form>
+
+                    <img src="../../img/man.svg" alt="man">
+                </div>
+
+                <div class="bottom-content">
+                    <div class="checkbox">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <p>Я хочу получить рассылку после мероприятия</p>
+                    </div>
+
+                    <div class="submiting">
+                        <button class="btn" type="submit" id="btn">next</button>
+                        <h4>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                            laboris nisi ut aliquip ex ea commodo.
+                        </h4>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
+
+        
+
+
+    <script src="../js/script.js"></script>
 </body>
 </html>
