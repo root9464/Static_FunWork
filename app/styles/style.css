@@ -45,7 +45,15 @@
             justify-content: space-between;
             align-items: center;
             gap: 32px;
-
+            .icons{
+                display: flex;
+                flex-direction: row;
+                > button {
+                    all: unset;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
             .form{
                 display: flex;
                 flex-direction: column;
@@ -94,9 +102,23 @@
             justify-content: space-between;
             align-items: center;
             gap: 32px;
-            >img{
-                position: relative;
-                bottom: 120px;
+            .icons {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                > button {
+                    all: unset;
+                    width: 20px;
+                    height: 20px;
+                    > img{
+                        position: relative;
+                        bottom: 120px;
+                    }
+                }
+                > img{
+                    position: relative;
+                    bottom: 120px;
+                }
             }
             .form{
                 display: flex;

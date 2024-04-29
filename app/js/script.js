@@ -11,6 +11,8 @@ const companyInput = document.querySelector('#company');
 const regionInput = document.querySelector('#region');
 const userInput = document.querySelector('#user');
 
+
+
 function setError(input, message) {
     input.style.border = '2px solid red';
     label.textContent = message;
@@ -115,3 +117,20 @@ function validateFormMan(event) {
     console.log('Форма успешно валидирована');
   }
 }
+
+
+document.getElementById('close-mn').addEventListener('click', function() {
+    document.querySelector('.form-mn').style.display = 'none';
+    const formMan = document.querySelectorAll('.form-role');
+    formMan.forEach(function(element) {
+        element.style.display = 'grid';
+    });
+})
+
+document.getElementById('close-wm').addEventListener('click', function() {
+    document.querySelector('.form-wm').style.display = 'none';
+    const formMan = document.querySelectorAll('.form-role');
+    formMan.forEach(function(element) {
+        element.style.display = 'grid';
+    });
+})
