@@ -30,68 +30,66 @@ document.getElementById('wombtn').addEventListener('click', function() {
 
 
 document.getElementById('wm').addEventListener('click', function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const name = nameInput.value.trim();
-    const city = cityInput.value.trim();
+  const name = nameInput.value.trim();
+  const city = cityInput.value.trim();
 
-    if (name!== '' && validateName(name)) nameInput.style.border = ''; else setError(nameInput, 'Введите корректный номер телефона или email');
+  if (name!== '' && (isPhoneNumber(name) || isEmail(name))) {
+    nameInput.style.border = '';
+  } else {
+    setError(nameInput, 'Введите корректный номер телефона или email');
+  }
 
-    if (city!== '') cityInput.style.border = ''; else setError(cityInput, 'Поле не может быть пустым');
+  if (city!== '') {
+    cityInput.style.border = '';
+  } else {
+    setError(cityInput, 'Поле не может быть пустым');
+  }
 
-    if (name !== '' && city !== '') {
-        nameInput.style.border = '';
-        cityInput.style.border = '';
-        label.textContent = '';
-        fwm.removeChild(label);
-        console.log('Форма успешно валидирована');
-    };
-    
+  if ((name!== '' && city!== '') && (isPhoneNumber(name) || isEmail(name))) {
+    nameInput.style.border = '';
+    cityInput.style.border = '';
+    label.textContent = ''; // clear the label's text content
+    console.log('Форма успешно валидирована');
+  }
 });
 
 document.getElementById('mn').addEventListener('click', function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const name = userInput.value.trim();
-    const surname = surnameInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const email = emailInput.value.trim();
-    const company = companyInput.value.trim();
-    const region = regionInput.value.trim();
+  const name = userInput.value.trim();
+  const surname = surnameInput.value.trim();
+  const phone = phoneInput.value.trim();
+  const email = emailInput.value.trim();
+  const company = companyInput.value.trim();
+  const region = regionInput.value.trim();
 
-    if (name !== '') userInput.style.border = ''; else setError(userInput, 'Поле не может быть пустым');
+  if (name!== '') userInput.style.border = ''; else setError(userInput, 'Поле не может быть пустым');
 
-    if (surname !== '') surnameInput.style.border = ''; else setError(surnameInput, 'Поле не может быть пустым');
+  if (surname!== '') surnameInput.style.border = ''; else setError(surnameInput, 'Поле не может быть пустым');
 
-    if (phone !== '') phoneInput.style.border = ''; else setError(phoneInput, 'Поле не может быть пустым');
+  if (phone!== '' && isPhoneNumber(phone) && phone.length === 10) phoneInput.style.border = ''; else setError(phoneInput, 'Телефон корректный или поле не может быть пустым');
 
-    if (email !== '') emailInput.style.border = ''; else setError(emailInput, 'Поле не может быть пустым');
+  if (email!== '' && isEmail(email)) emailInput.style.border = ''; else setError(emailInput, 'Введите корректный email или поле не может быть пустым');
 
-    if (company !== '') companyInput.style.border = ''; else setError(companyInput, 'Поле не может быть пустым');
+  if (company!== '') companyInput.style.border = ''; else setError(companyInput, 'Поле не может быть пустым');
 
-    if (region !== '') regionInput.style.border = ''; else setError(regionInput, 'Поле не может быть пустым');
+  if (region!== '') regionInput.style.border = ''; else setError(regionInput, 'Поле не может быть пустым');
 
-    if (name !== '' && surname !== '' && phone !== '' && email !== '' && company !== '' && region !== '') {
+  if ((name!== '' && surname!== '' && phone!== '' && email!== '' && company!== '' && region!== '') && (isPhoneNumber(phone) || isEmail(email))) {
 
-        userInput.style.border = '';
-        surnameInput.style.border = '';
-        phoneInput.style.border = '';
-        emailInput.style.border = '';
-        companyInput.style.border = '';
-        regionInput.style.border = '';
+    userInput.style.border = '';
+    surnameInput.style.border = '';
+    phoneInput.style.border = '';
+    emailInput.style.border = '';
+    companyInput.style.border = '';
+    regionInput.style.border = '';
 
-        label.textContent = '';
-        fmn.removeChild(label);
-        console.log('Форма успешно валидирована');
-    }
+    label.textContent = ''; // clear the label's text content
+    console.log('Форма успешно валидирована');
+  }
 })
-
-
-function validateName(name) {
-  const phoneRegex = /^((\+7|7|8)+([0-9]){10})$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return phoneRegex.test(name) || emailRegex.test(name);
-}
 
 
 function setError(input, message) {
@@ -102,3 +100,14 @@ function setError(input, message) {
 }
 
 
+function isEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+
+}
+
+
+function isPhoneNumber(phoneNumber) {
+    const pattern = /^(\+?7|8)\d{10}$/;
+    return pattern.test(phoneNumber);
+}
